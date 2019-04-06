@@ -10,12 +10,12 @@ import { MoviestoreServiceProvider } from './components/moviestore-service-conte
 
 import store from './store';
 
-const MoviestoreService = new MoviestoreService();
+const moviestoreService = new MoviestoreService();
 
 ReactDOM.render(
     <Provider store={store}>
         <ErrorBoundry>
-            <MoviestoreServiceProvider value={MoviestoreService}>
+            <MoviestoreServiceProvider value={moviestoreService}>
                 <Router>
                     <App />
                 </Router>                

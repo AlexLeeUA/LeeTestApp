@@ -38,7 +38,7 @@ export default class MoviestoreService {
     } 
 }
 
-const x = new MovapiService();
+const x = new MoviestoreService();
 x.getImagePath(8827).then((value) => {
     console.log(value)
 });

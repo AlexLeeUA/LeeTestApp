@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
+import MovieList from '../movie-list';
 
-const App = () => {
-    return (
-        <div>Hello World</div>
-    )
+export default class App extends Component {
+    render () {
+        return <MovieList />
+    } 
 }
-
-export default App;
