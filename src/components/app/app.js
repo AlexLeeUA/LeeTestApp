@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MovieList from '../movie-list';
+import {withMoviestoreService} from '../hoc';
 
-export default class App extends Component {
-    render () {
-        return <MovieList />
-    } 
+
+const App = () => {
+    
+        
+    return (
+        <MovieList />
+    )
 }
+
+export default withMoviestoreService()(App);

@@ -1,51 +1,53 @@
-import React, {Component} from 'react';
-import MoviestoreService from '../../services/moviestore-service';
+import React, { Component } from 'react';
+import {withMoviestoreService} from '../hoc';
+import MovieListItem from '../movie-list-item';
+import { connect } from 'react-redux';
+import { moviesLoaded,imagePathLoaded } from '../../actions';
+
+import './movie-list.css';
 
 
-export default class MovieList extends Component {
 
-    moviestoreService = new MoviestoreService();
-
-    state = {
-        title: null,
-        overview: null,
-        release: null
-    };
-
-    constructor() {
-        super();
-        this.updateMovie();
-    }
-
-    updateMovie() {
-        this.moviestoreService
-            .getItem(8827)
-            .then((movie) => {
-                this.setState({
-                    title: movie.title,
-                    overview: movie.overview,
-                    release: movie.release
-                })
+class MovieList extends Component {
+    
+    componentDidMount() {
+        const { moviestoreService } = this.props;
+        moviestoreService.getItemList()
+            .then((value) => {
+                this.props.moviesLoaded(value);
+            })
+        moviestoreService.getImagePath()
+            .then((path) => {
+                this.props.imagePathLoaded(path)
             })
     }
 
-    render() {
 
-        const { title, overview, release } = this.state;
+    render() {
+        const { movies, imagePath } = this.props;
 
         return (
-            <ul>
-                <li>
-                   {title}                   
-                </li>  
-                <li>
-                   {overview}                   
-                </li>  
-                <li>
-                   {release}
-                </li>                       
+            <ul className="movielist">
+                {
+                    movies.map((movie) => {
+                        return (<li key={movie.id}><MovieListItem movie={movie} imagePath={imagePath} /></li>)
+                    })
+                }
             </ul>
-        )        
+        )
+    }   
+}
+
+const mapStateToProps = (state) => {
+    return {
+        movies: state.movies,
+        imagePath: state.imagePath
     }
 }
 
+const mapDispatchToProps = {
+    moviesLoaded,
+    imagePathLoaded
+}
+
+export default withMoviestoreService()(connect(mapStateToProps, mapDispatchToProps)(MovieList));

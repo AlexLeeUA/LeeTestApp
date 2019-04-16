@@ -1,0 +1,52 @@
+.movie-list-item {
+    display: flex;
+    margin: 30px;
+    width: 700px;
+}
+
+.poster {
+    width: 200px;
+    height: 300px;  
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    align-items: flex-start;
+    font:14px Arial, Helvetica, sans-serif; 
+}
+
+.purchasing {
+    display: flex;
+    
+}
+
+.purchasing button {
+    align-items: center;
+    flex-direction: row;
+    margin: 20px;
+    text-decoration: none; 
+    text-align: center; 
+    padding: 11px 32px; 
+    border: solid 1px #004F72; 
+    border-radius: 4px; 
+    font: 18px Arial, Helvetica, sans-serif; 
+    font-weight: bold; 
+    color:#E5FFFF; 
+    background-color:#1a1ad4;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.purchasing button:hover {
+    opacity: 1;
+}
+
+.content .details {
+    margin: 10px;
+}
+
+.content .details span {
+    font-weight: bold; 
+}

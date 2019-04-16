@@ -1,14 +1,25 @@
 
+
 const initialState = {
-    movies: []
+    movies: [],
+    imagePath: null
 }
+
+
 
 const reducer = (state = initialState, action) => {
     
     switch (action.type) {
+        case 'IMAGE_PATH_LOADED':
+            return {
+                ...state,
+                imagePath: action.payload
+            };
+
         case 'MOVIES_LOADED': 
             return {
-                movies: action.payload
+                ...state,
+                movies: action.payload,
             };
 
         default: 
@@ -16,5 +27,7 @@ const reducer = (state = initialState, action) => {
     };
     
 }
+
+
 
 export default reducer;
