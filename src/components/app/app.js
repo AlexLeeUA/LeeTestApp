@@ -1,5 +1,7 @@
 import React from 'react';
-import MovieList from '../movie-list';
+import {HomePage, CartPage, CheckoutPage} from '../pages';
+import {Route} from 'react-router-dom';
+import ShopHeader from '../shop-header';
 import {withMoviestoreService} from '../hoc';
 
 
@@ -7,7 +9,14 @@ const App = () => {
     
         
     return (
-        <MovieList />
+        <main>
+            <ShopHeader />
+            <Route path="/" component={HomePage} exact />
+            <Route path="/cart" component={CartPage} />
+            <Route path="/checkout" component={CheckoutPage} />
+        </main>          
+
+            
     )
 }
 

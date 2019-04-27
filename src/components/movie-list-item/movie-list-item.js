@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 
 import './movie-list-item.css';
 
 class MovieListItem extends Component {
     
- 
-
-    render() {
+     render() {
         
         const { movie, imagePath } = this.props;
         const fullPath=`${imagePath}${movie.path}`
@@ -26,8 +25,10 @@ class MovieListItem extends Component {
                         {movie.overview}
                     </div>
                     <div className="purchasing">
-                        <button>Buy Now</button>
-                        <button>Add to Cart</button>   
+                        <Link to="/checkout">
+                            <button>Buy Now</button>
+                        </Link>                        
+                        <button className="toCart">Add to Cart</button>   
                     </div>                    
                 </div>    
             </div>
