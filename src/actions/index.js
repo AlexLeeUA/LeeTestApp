@@ -1,4 +1,18 @@
 
+const changeListInc = (listId) => {
+    return {
+        type: 'INC',
+        payload: listId
+    }
+}
+
+const changeListDec = (listId) => {
+    return {
+        type: 'DEC',
+        payload: listId
+        }
+    }
+
 
 const moviesLoaded = (newMovies) => {
     return {
@@ -14,7 +28,40 @@ const imagePathLoaded = (path) => {
     }
 }
 
+const moviesFound = (text) => {
+    return {
+        type: 'MOVIES_FOUND',
+        payload: text
+}
+}
+
+const movieIdGot = (id) => {
+    return {
+        type: 'MOVIE_ID_GOT',
+        payload: id
+    }
+}
+
+const movieLoaded = (movie) => {
+    return {
+        type: 'MOVIE_LOADED',
+        payload: movie
+    }
+}
+
+const loading = () => {
+    return {
+        type: 'LOADING'
+    }
+}
+
 export {
     moviesLoaded,
-    imagePathLoaded
+    imagePathLoaded,
+    changeListInc,
+    changeListDec,
+    moviesFound,
+    movieIdGot,
+    movieLoaded,
+    loading
 };

@@ -30,8 +30,8 @@ export default class MoviestoreService {
     }
 
     
-    getItemList = async () => {
-        const list = await this.getResource('https://api.themoviedb.org/4/list/222?page=1&api_key=dab311d55ca033353e291532b0572824');
+    getItemList = async (id) => {
+        const list = await this.getResource(`https://api.themoviedb.org/4/list/${id}?page=1&api_key=dab311d55ca033353e291532b0572824`);
         return list.results.map(this._tranformItem);
     }
 

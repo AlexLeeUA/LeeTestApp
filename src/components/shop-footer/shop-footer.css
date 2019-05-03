@@ -1,0 +1,22 @@
+.list-number {
+    margin-left: 300px;
+    padding-left: 70px;
+    width: 700px;
+    display: inline-flex;
+}
+
+.list-number button {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.list-number .num {
+    font-size: 24pt;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    vertical-align: middle;
+    color: grey;
+    margin-left: 10px;
+    margin-right: 10px;
+}
