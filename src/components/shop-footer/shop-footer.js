@@ -6,13 +6,13 @@ import './shop-footer.css';
 
 class Button extends Component {
 
-    componentDidUpdate() {
+    componentDidMount() {
         this.update()
     }
 
     update = () => {
         const {movieListId} = this.props;
-        console.log(movieListId)
+   
         if (movieListId<2) {
             return document.getElementById('dec').style.display = 'none';
          }

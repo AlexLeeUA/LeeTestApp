@@ -36,12 +36,14 @@ const reducer = (state = initialState, action) => {
         case 'MOVIES_LOADED': 
             return {
                 ...state,
+                loading: false,
                 movies: action.payload,
             };
         
         case 'MOVIES_FOUND': 
             return {
                 ...state,
+                loading: false,
                 searchReq: action.payload
             }
 
@@ -55,14 +57,15 @@ const reducer = (state = initialState, action) => {
         case 'MOVIE_LOADED': {
             return {
                 ...state,
+                loading: false,
                 movie: action.payload
             }
         }
 
-        case 'LOADING': {
+        case 'DATA_REQUESTED': {
             return {
                 ...state,
-                loading: action.payload
+                loading: true
             }
         }
 

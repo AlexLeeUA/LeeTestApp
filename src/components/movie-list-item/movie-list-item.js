@@ -24,16 +24,6 @@ class MovieListItem extends Component {
                         <h2 id={movie.id}>{movie.title}</h2>
                     </Link>
 
-                    <div className="details">
-                        <span>Release date: </span>
-                        {movie.release}
-                    </div>
-
-                    <div className="details">
-                        <span>Movie overview: </span>
-                        {movie.overview}
-                    </div>
-
                     <div className="purchasing">
                         <p>Price: ${(Math.random()*10).toFixed(2)}</p>
                         <Link to="/checkout">

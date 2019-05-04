@@ -3,8 +3,9 @@ import {withMoviestoreService} from '../hoc';
 import MovieListItem from '../movie-list-item';
 import SearchPanel from '../search-panel';
 import ShopFooter from '../shop-footer';
+import Spinner from '../spinner';
 import { connect } from 'react-redux';
-import { moviesLoaded, imagePathLoaded, movieIdGot, loading } from '../../actions';
+import { moviesLoaded, imagePathLoaded, movieIdGot, dataRequested } from '../../actions';
 
 import './movie-list.css';
 
@@ -42,7 +43,9 @@ class MovieList extends Component {
     }
 
     updateList() {
-        const { moviestoreService, movieListId } = this.props;
+        const { moviestoreService, movieListId, dataRequested } = this.props;
+
+        dataRequested();
 
         if (movieListId>0) {
             moviestoreService.getItemList(movieListId)
@@ -59,7 +62,12 @@ class MovieList extends Component {
 
 
     render() {
-        const { movies, imagePath, movieIdGot } = this.props;  
+        const { movies, imagePath, movieIdGot, loading } = this.props;
+
+        console.log(loading)
+        if (loading) {
+            return <Spinner />
+        }
       
         return (
             <div>
@@ -92,7 +100,7 @@ const mapDispatchToProps = {
     moviesLoaded,
     imagePathLoaded,
     movieIdGot,
-    loading
+    dataRequested
 }
 
 export default withMoviestoreService()(connect(mapStateToProps, mapDispatchToProps)(MovieList));

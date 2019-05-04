@@ -49,11 +49,12 @@ const movieLoaded = (movie) => {
     }
 }
 
-const loading = () => {
+const dataRequested = () => {
     return {
-        type: 'LOADING'
+        type: 'DATA_REQUESTED'
     }
 }
+
 
 export {
     moviesLoaded,
@@ -63,5 +64,5 @@ export {
     moviesFound,
     movieIdGot,
     movieLoaded,
-    loading
+    dataRequested
 };
