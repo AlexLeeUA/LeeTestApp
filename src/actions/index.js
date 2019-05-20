@@ -55,6 +55,43 @@ const dataRequested = () => {
     }
 }
 
+const itemAddedToCart = (id) => {
+    return {
+        type: 'ITEM_ADDED_TO_CART',
+        payload: id
+    }
+}
+
+const cartReloaded = (cartItems) => {
+    return {
+        type: 'CART_RELOADED',
+        payload: cartItems
+    }
+}
+
+const shippingAddressAdded = (newShippingAdress) => {
+    return {
+        type: 'SHIPPING_ADDRESS_ADDED',
+        payload: newShippingAdress
+    }
+}
+
+const itemAddedToCheckout = (id2) => {
+    return {
+        type: 'ITEM_ADDED_TO_CHECKOUT',
+        payload: id2
+    }
+}
+
+const itemsAddedToCheckout = (items) => {
+    return {
+        type: 'ITEMS_ADDED_TO_CHECKOUT',
+        payload: items
+    }
+}
+
+
+
 
 export {
     moviesLoaded,
@@ -64,5 +101,10 @@ export {
     moviesFound,
     movieIdGot,
     movieLoaded,
-    dataRequested
+    dataRequested,
+    itemAddedToCart,
+    cartReloaded,
+    shippingAddressAdded,
+    itemAddedToCheckout,
+    itemsAddedToCheckout
 };

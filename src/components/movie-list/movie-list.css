@@ -1,5 +1,7 @@
 .movielist {
     list-style-type: none;
+    z-index: 0;
+    margin-top: 0px;
 }
 
 .movielist li {

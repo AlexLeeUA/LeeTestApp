@@ -64,7 +64,6 @@ class MovieList extends Component {
     render() {
         const { movies, imagePath, movieIdGot, loading } = this.props;
 
-        console.log(loading)
         if (loading) {
             return <Spinner />
         }
@@ -75,7 +74,7 @@ class MovieList extends Component {
                 <ul className="movielist" onClick={(e) => {return movieIdGot(e.target.id)}}>
                     {
                         movies.map((movie) => {
-                            return (<li key={movie.id}><MovieListItem movie={movie} imagePath={imagePath}  /></li>)
+                            return (<li key={movie.id}><MovieListItem movie={movie} imagePath={imagePath} /></li>)
                         })
                     }
                 </ul>
@@ -100,7 +99,7 @@ const mapDispatchToProps = {
     moviesLoaded,
     imagePathLoaded,
     movieIdGot,
-    dataRequested
+    dataRequested,
 }
 
 export default withMoviestoreService()(connect(mapStateToProps, mapDispatchToProps)(MovieList));

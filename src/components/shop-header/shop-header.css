@@ -4,6 +4,11 @@ header {
     width: 700px;
     position: relative;
     border-bottom: rgb(0, 194, 233) solid;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+    margin-bottom: 0px;
 }
 
 .logo {
@@ -21,7 +26,16 @@ header {
 }
 
 
+.shopping-cart .counter {
+    position: absolute;
+    right: 40px;
+    top: 8px;
+    font-weight: bold;
+}
+
 .shopping-cart-icon {
+    width: 32px;
+    height: 32px;
     position: absolute;
     top: 25%;
     right: 10px;

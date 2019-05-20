@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './shop-header.css';
 
-const ShopHeader = () => {
+const ShopHeader = ({cartItems}) => {
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;                     
+    const totalItems = cartItems.map(({quantity}) => quantity).reduce(reducer); 
+
     return (
         <header>
             <Link to="/">
@@ -12,8 +17,9 @@ const ShopHeader = () => {
                 </div>
             </Link>
             <Link to="/cart">
-                <div>                
-                    <img src="https://image.flaticon.com/icons/svg/2/2772.svg" className="shopping-cart-icon" width="32px" height="32px" alt="cart" />
+                <div className="shopping-cart">                
+                    <img src="https://image.flaticon.com/icons/svg/2/2772.svg" className="shopping-cart-icon" alt="cart" />
+                    <div className="counter">{totalItems}</div>
                 </div>
             </Link>
         </header>
@@ -21,4 +27,10 @@ const ShopHeader = () => {
     )
 }
 
-export default ShopHeader;
+const mapStateToProps = (state) => {
+    return {
+        cartItems: state.cartItems
+    }
+}
+
+export default connect(mapStateToProps)(ShopHeader);
