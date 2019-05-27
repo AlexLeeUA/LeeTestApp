@@ -1,60 +1,157 @@
+@import url("../../styles-and-fonts/fonts.css");
+
 .movie-list-item {
     display: flex;
-    margin: 30px;
-    width: 700px;
+    width: 1179px;
+    height: 360px;
+    border-radius: 4px;
+    background-color: #fafafa;
+    margin-bottom: 40px;
+    position: relative;
+
+}
+
+.movie-list-item:hover{
+    box-shadow: 0 2px 10px 0 rgba(216, 216, 216, 0.5);
+    background-color: #ffffff;
 }
 
 .poster {
-    width: 200px;
-    height: 300px;  
+    width: 240px;
+    height: 360px;
+    border-radius: 4px;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-    align-items: flex-start;
-    font: 14px Arial, Helvetica, sans-serif; 
+.movie-list-item .movie-title {
+    position: absolute;
+    top: 30px;
+    left: 280px;
+    height: 22px;
+    font-family: "Circular Black";
+    font-size: 22px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    color: #111111;
 }
 
-.purchasing {
-    display: flex;
-    
+.movie-list-item .movie-title:hover {
+    color: #0e0377;
 }
 
-.purchasing button {
-    align-items: center;
-    flex-direction: row;
-    margin: 20px;
-    text-decoration: none; 
-    text-align: center; 
-    padding: 11px 32px; 
-    border: solid 1px #004F72; 
-    border-radius: 4px; 
-    font: 18px Arial, Helvetica, sans-serif; 
-    font-weight: bold; 
-    color:#E5FFFF; 
-    background-color:#1a1ad4;
+.movie-list-item .content span {
+    height: 32px;
+    border-radius: 19px;
+    background-color: #ececec;
+    font-family: "Circular Black";
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.4;
+    letter-spacing: 0.2px;
+    color: #828286;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.movie-list-item .movie-popularity {
+    position: absolute;
+    top: 102px;
+    left: 280px;
+}
+
+.movie-list-item .movie-release {
+    position: absolute;
+    top: 102px;
+    left: 461px;
+}
+
+.movie-list-item .movie-price .price-name {
+    width: 258px;
+    height: 22px;
+    font-family: "Circular Black";
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: 0.2px;
+    color: #111111;
+    position: absolute;
+    top: 174px;
+    left: 280px;
+}
+
+.movie-list-item .movie-price .price-value {
+    width: 102px;
+    height: 43px;
+    font-family: "Circular Black";
+    font-size: 34px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #828286;
+    position: absolute;
+    top: 204px;
+    left: 280px;
+}
+.movie-list-item .add-to-cart {
+    width: 250px;
+    height: 50px;
+    padding-left: 60px;
+    border-radius: 4px;
+    background-color: #0894a1;
+    border: none;
+    font-family: "Circular Black";
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    text-align: left;
+    color: #ffffff;
+    position: absolute;
+    top: 50px;
+    right: 39px;
+    background-image: url(../../styles-and-fonts/images/button-cart.svg);
+    background-position: 77% 50%;
+    background-repeat: no-repeat;
     cursor: pointer;
-    opacity: 0.8;
 }
 
-.purchasing button:hover {
-    opacity: 1;
+.movie-list-item .add-to-cart:hover{
+    background-color: #057e89;
 }
 
-.purchasing .toCart {
-    opacity: 0.5;
+.movie-list-item .buy-now {
+    width: 250px;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #eb553c;
+    border: none;
+    font-family: "Circular Black";
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    top: 110px;
+    right: 39px;
+    cursor: pointer;
 }
 
-.purchasing .toCart:hover {
-    opacity: 0.7;
+.movie-list-item .buy-now:hover{
+    background-color: #cf3f27;
 }
 
-.content .details {
-    margin: 10px;
-}
-
-.content .details span {
-    font-weight: bold; 
-}

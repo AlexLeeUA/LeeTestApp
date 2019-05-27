@@ -1,22 +1,53 @@
+@import url("../../styles-and-fonts/fonts.css");
+
 .search-panel {
-    width: 700px;
-    padding-left: 70px;
-    position: sticky;
-    top: 87px;
+    width: 1135px;
+    position: relative;
+    top: 64px;
     background-color: white;
-    z-index: 1;
-    margin-top: 100px;
+    display: flex;
+    margin-left: 370px;
+    align-items: center;
 }
 
 .search-panel .result {
-    font: 18px Arial, Helvetica, sans-serif; 
-    font-weight: bold;
+    width: 130px;
+    height: 23px;
+    font-family: "Circular Black";
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    color: #828286;
 }
 
 .search-panel .search {
-    position: absolute;
-    width: 300px;
-    top: 0;
-    right: 0;
-    border-radius: 5px;
+    width: 500px;
+    height: 42px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    position: relative;
+    left: 515px;
+    right: 0px;
+    font-family: "Circular Black";
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    color: #828286;
+    border: #f4f4f4;
+}
+
+.search:focus {
+    background-color: #ffffff;
+}
+
+.search:focus::placeholder{
+    color: transparent;
 }

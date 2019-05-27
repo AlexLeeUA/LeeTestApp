@@ -1,4 +1,11 @@
 
+const defaultListLoaded = (listId) => {
+    return {
+        type: 'DFT',
+        payload: listId
+    }
+}
+
 const changeListInc = (listId) => {
     return {
         type: 'INC',
@@ -62,6 +69,20 @@ const itemAddedToCart = (id) => {
     }
 }
 
+const itemRemovedFromCart = (id) => {
+    return {
+        type: 'ITEM_REMOVED_FROM_CART',
+        payload: id
+    }
+}
+
+const itemDeletedFromCart = (index) => {
+    return {
+        type: 'ITEM_DELETED_FROM_CART',
+        payload: index
+    }
+}
+
 const cartReloaded = (cartItems) => {
     return {
         type: 'CART_RELOADED',
@@ -94,6 +115,7 @@ const itemsAddedToCheckout = (items) => {
 
 
 export {
+    defaultListLoaded,
     moviesLoaded,
     imagePathLoaded,
     changeListInc,
@@ -103,6 +125,8 @@ export {
     movieLoaded,
     dataRequested,
     itemAddedToCart,
+    itemRemovedFromCart,
+    itemDeletedFromCart,
     cartReloaded,
     shippingAddressAdded,
     itemAddedToCheckout,

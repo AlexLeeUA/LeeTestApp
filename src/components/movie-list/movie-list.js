@@ -60,7 +60,6 @@ class MovieList extends Component {
         
     }
 
-
     render() {
         const { movies, imagePath, movieIdGot, loading } = this.props;
 

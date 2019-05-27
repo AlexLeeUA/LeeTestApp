@@ -1,36 +1,46 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import {defaultListLoaded} from '../../actions';
 import './shop-header.css';
+import logo from '../../styles-and-fonts/images/logo.svg';
+import cart from '../../styles-and-fonts/images/cart.svg';
 
-const ShopHeader = ({cartItems}) => {
+
+const ShopHeader = ({cartItems, movieListId, defaultListLoaded}) => {
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;                     
     const totalItems = cartItems.map(({quantity}) => quantity).reduce(reducer); 
-
+    console.log(movieListId)
     return (
         <header>
-            <Link to="/">
-                <div>
-                    <img src="https://image.flaticon.com/icons/svg/1719/1719926.svg" className="logo" width="50px" height="50px" alt="logo" />
-                    <h1 className="title">Movies Store</h1>
+            <Link to={`/movielist/1`}>
+                <div className="header-title" onClick={()=>defaultListLoaded(movieListId)}>
+                    <img src={logo} className="logo" alt="logo" />
+                    <h1 className="name">Movies Store</h1>
                 </div>
             </Link>
+            
             <Link to="/cart">
                 <div className="shopping-cart">                
-                    <img src="https://image.flaticon.com/icons/svg/2/2772.svg" className="shopping-cart-icon" alt="cart" />
-                    <div className="counter">{totalItems}</div>
+                    <img src={cart} className="shopping-cart-icon" alt="cart" />
+                    <div className="counter"><span className="total">{totalItems}</span></div>
                 </div>
             </Link>
         </header>
+        
 
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        cartItems: state.cartItems
+        cartItems: state.cartItems,
     }
 }
 
-export default connect(mapStateToProps)(ShopHeader);
+const mapDispatchToProps = {
+        defaultListLoaded
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopHeader);

@@ -1,34 +1,263 @@
+@import url("../../styles-and-fonts/fonts.css");
+
 .cart {
-    margin: 70px;
-    width: 700px;
-    display: flex;
-    justify-content: space-between;
+    width: 730px;
+    border-radius: 4px;
+    background-color: #f4f4f4;
     position: relative;
+    top: 39px;
+    left: 371px;
+    padding-bottom: 61px;
 }
 
-.cart .info span {
-    vertical-align: top;
+.cart .title {
+    font-family: "Circular Bold";
+    font-size: 20px;
     font-weight: bold;
-    font-size: 18pt;
-    display: inline-block;
-    margin: 10px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+    color: #111111;
+    position: relative;
+    top: 30px;
+    left: 20px;
 }
 
-.toCheckoout {
-    width: 150px;
-    position: fixed;
-    right: 0px;
+.cart .purchase-items {
+    width: 429px;
+    height: 307px;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    position: absolute;
     top: 0px;
+    left: 749px;
 }
 
-
-.cart .info .movie-image {
-    width: 75px;
-    height: 100px;
+.general-info {
+    list-style-type: none;
+    display: inline-flex;
+    width: 689px;
+    height: 181px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px 0 rgba(216, 216, 216, 0.5);
+    border: solid 1px #f4f4f4;
+    background-color: #ffffff;
+    position: relative;
+    top: 50px;
+    left: 20px;
+    bottom: 0px;
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
 }
 
-.cart .info .name {    
+.general-info .remove-item {
+    position: relative;
+    margin: 77px 23px 84px 20px;
+    background-image: url(../../styles-and-fonts/images/remove-button.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.general-info .remove-item:hover{
+    background-image: url(../../styles-and-fonts/images/remove-button-active.svg);
+}
+
+.general-info .movie-image {
+    width: 129px;
+    height: 132px;
+    margin-top: 20px;
+    margin-bottom: 29px;
+}
+
+.general-info .movie-title {
+    font-family: "Circular Medium";
+    font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: 0.2px;
+    color: #111111;
+    margin-top: 27px;
+    margin-left: 21px;
+}
+
+.general-info .quantity-name {
+    font-family: "Circular Book";
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.69;
+    letter-spacing: 0.1px;
+    color: #111111;
+    position: relative;
+    top: 44px;
+    margin-left: 23px;
+}
+
+.general-info .quantity-value {
+    position: relative;
+    top: 51px;
+    left: -17px; 
+}
+
+.general-info .quantity-value button {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    border: none;
+    cursor: pointer;
+}
+
+.general-info .quantity-value button:hover{
+    background-color: #eaeaea;
+}
+
+.general-info .quantity-value .value {
+    font-family: "Circular Book";
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.5;
+    letter-spacing: normal;
+    text-align: center;
+    color: #828286;
+    margin: 0px 21px;
+}
+
+.general-info .quantity-value {
+    list-style-type: none;
+    display: inline-flex;
+}
+
+.general-info .price-value {
+    font-family: "Circular Medium";
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #828286;
+    position: absolute;
+    top: 27px;
+    right: 20px;
+}
+
+.cart .purchase-items .checkout-button {
+    width: 389px;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #eb553c;
+    border: none;
+    position: relative;
+    font-family: "Circular Medium";
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: #ffffff;
+    margin-left: 21px;
+    cursor: pointer;
+}
+
+.checkout-table {
+    margin: 30px 20px 30px 20px;
+    width: 389px;
+}
+
+.cart .purchase-items .checkout-table .order {
+    font-family: "Circular Bold";
+    font-size: 20px;
     font-weight: bold;
-    vertical-align: top;
-
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+    color: #111111;
+    padding-bottom: 25px;
 }
+
+.cart .purchase-items .checkout-table .items {
+    width: 79px;
+    height: 28px;
+    border-radius: 4px;
+    background-color: #e7e7e7;
+    font-family: "Circular Book";
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    color: #111111;
+    text-align: center;
+    display: inline-block;
+    line-height: 2;
+    position: absolute;
+    top: 31px;
+    right: 21px;
+}
+
+.cart .purchase-items .checkout-table .sub-total, .shipping {
+    font-family: "Circular Book";
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.13;
+    letter-spacing: 0.2px;
+    color: #828286;
+    padding-bottom: 10px;
+}
+
+.cart .purchase-items .checkout-table .sub-total-price, .shipping-value {
+    font-family: "Circular Medium";
+    font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #828286;
+}
+
+.cart .purchase-items .checkout-table .grand-total {
+    font-family: "Circular Bold";
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.78;
+    letter-spacing: 0.2px;
+    color: #111111;
+}
+
+.cart .purchase-items .checkout-table .grand-total-value {
+    font-family: "Circular Bold";
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #111111;
+}
+
+
+
+

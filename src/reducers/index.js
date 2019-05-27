@@ -8,12 +8,16 @@ const initialState = {
     movieId: '',
     movie: {},
     loading: true,
+    defaultPrice: 14.99,
+    defaultQuantity: 1,
     cartItems: [
-        {id: 1,
-        title: 'Gift Movie',
-        quantity: 1,
-        path: '/cezWGskPY5x7GaglTTRN4Fugfb8.jpg',
-        price: 0}
+        {
+            id: 1,
+            title: 'Guardians of the Galaxy',
+            quantity: 1,
+            path: '/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg',
+            price: 0.00
+        }
     ],
     shippingAddress: {
         firstName: '',
@@ -28,10 +32,71 @@ const initialState = {
     checkoutItems: []
 }
 
+const updateCartItems = (cartItems, item, idx) => {
+    
+    if (item.quantity === 0) {
+        return [
+            ...cartItems.slice(0, idx),
+            ...cartItems.slice(idx+1),
+        ]
+    }
+
+    if (idx === -1) {
+        return [
+            ...cartItems,
+            item
+        ]
+    }
+
+    return [
+        ...cartItems.slice(0, idx),
+        item,
+        ...cartItems.slice(idx+1),
+    ]
+}
+
+const updateItem = (movie, item={}, defaultPrice, count) => {
+    
+    const {
+        id = movie.id,
+        title = movie.title,
+        quantity = 0,
+        path = movie.path,
+        price = 0.00
+    } = item;
+
+    return {
+        id,
+        title,
+        quantity: quantity + count,
+        path,
+        price: price + defaultPrice*count
+    }
+}
+
+const updateOrder = (state, id, count) => {
+    const {movies, cartItems, defaultPrice} = state;
+    const movie = movies.find((movie) => id === movie.id);
+    const itemIndex = cartItems.findIndex(({id}) => id === movie.id);
+    const item = cartItems[itemIndex];
+
+    const newItem = updateItem(movie, item, defaultPrice, count);
+
+    return {
+        ...state,
+        cartItems: updateCartItems(cartItems, newItem, itemIndex)
+    }
+}
 
 const reducer = (state = initialState, action) => {
     
     switch (action.type) {
+        case 'DFT':
+            return {
+                ...state,
+                movieListId: state.movieListId*0 + 1
+            }        
+        
         case 'INC':
             return {
                 ...state,
@@ -88,48 +153,22 @@ const reducer = (state = initialState, action) => {
         }
 
         case 'ITEM_ADDED_TO_CART':
-            const id = action.payload;
-            const movie = state.movies.find((movie) => id === movie.id);
-            const itemIndex = state.cartItems.findIndex(({id}) => id === movie.id);
-            const item = state.cartItems[itemIndex];
+            return updateOrder(state, action.payload, 1)
 
-            let newItem;
+        case 'ITEM_REMOVED_FROM_CART':
+            return updateOrder(state, action.payload, -1)
 
-            if(item) {
-                newItem = {
-                    ...item,
-                    quantity: item.quantity + 1,
-                    price: item.price + 100
-                }
-            } else {
-                newItem = {
-                    id: movie.id,
-                    title: movie.title,
-                    quantity: 1,
-                    path: movie.path,
-                    price: 100
-                }
+        case 'ITEM_DELETED_FROM_CART':
+            const index = action.payload;
+                           
+            return {
+                ...state,
+                cartItems: [
+                    ...state.cartItems.slice(0, index),
+                    ...state.cartItems.slice(index+1),
+                ],
             }
-
-            if (itemIndex < 0) {
-                return {
-                    ...state,
-                    cartItems: [
-                        ...state.cartItems,
-                        newItem
-                    ]
-                }
-            } else {
-                return {
-                    ...state,
-                    cartItems: [
-                        ...state.cartItems.slice(0, itemIndex),
-                        newItem,
-                        ...state.cartItems.slice(itemIndex + 1),
-                    ]
-                }
-            }
-            
+                
         case 'CART_RELOADED':
             return {
                 ...state,

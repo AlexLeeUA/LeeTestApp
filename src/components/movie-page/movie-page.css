@@ -1,31 +1,164 @@
+@import url("../../styles-and-fonts/fonts.css");
+@import url("../../components/movie-list-item/movie-list-item.css");
+
 .movie-data {
-    display: flex;    
-    margin: 70px;
-    width: 700px;
+    position: relative;
 }
 
-.movie-image {
-    width: 30%;
-    height: 30%
+.movie-data .movie-image {
+    position: absolute;
+    top: 68px;
+    left: 370px;
+    width: 413px;
+    height: 620px;
+    border-radius: 4px;
 }
 
-.movie-info {
-    margin-left: 20px;
-}
-
-.movie-title {
+.movie-data .movie-title {
+    position: absolute;
+    top: 89px;
+    left: 843px;    
     display: flex;
-    text-align: center
+    text-align: center;
+    height: 22px;
+    font-family: "Circular Black";
+    font-size: 30px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.73;
+    letter-spacing: 0.3px;
+    color: #111111;
+    text-transform: uppercase;
 }
 
-.details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    
+.movie-data .details span {
+    height: 32px;
+    border-radius: 19px;
+    background-color: #ececec;
+    font-family: "Circular Black";
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.4;
+    letter-spacing: 0.2px;
+    color: #828286;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.details span {
+.movie-data .details .movie-genre {
+    position: absolute;
+    top: 141px;
+    left: 843px;
+
+}
+.movie-data .details .movie-duration {
+    position: absolute;
+    top: 141px;
+    left: 1000px;
+}
+
+.movie-data .details .movie-release {
+    position: absolute;
+    top: 141px;
+    left: 1130px;
+}
+
+.movie-data span {
+    height: 22px;
+    font-family: "Circular Black";
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47;
+    letter-spacing: 0.2px;
+    color: #111111;
+}
+
+
+.movie-data .overview .overview-name {
+    position: absolute;
+    top: 222px;
+    left: 843px;
+}
+
+.movie-data .overview .overview-value {
+    position: absolute;
+    top: 252px;
+    left: 843px;
+    width: 705px;
+    font-size: 18px;
+    line-height: 1.78;
+    letter-spacing: 0.2px;
+    color: #828286;
+}
+
+.movie-data .movie-price .price-name {
+    position: absolute;
+    top: 410px;
+    left: 843px;
+}
+
+.movie-data .movie-price .price-value {
+    position: absolute;
+    top: 440px;
+    left: 843px;
+    font-size: 34px;
     font-weight: bold;
+    letter-spacing: normal;
+    color: #828286;
+}
+
+.movie-data .quantity .quantity-name {
+    position: absolute;
+    top: 513px;
+    left: 843px;
+}
+
+.movie-data .quantity .quantity-value {
+    position: absolute;
+    top: 505px;
+    left: 803px;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: normal;
+    color: #828286;
+}
+
+.movie-data .quantity .quantity-value ul {
+    list-style-type: none;
+    display: inline-flex;
+}
+
+.movie-data .quantity .quantity-value button {
+    width: 42px;
+    height: 42px;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    border: none;
+    cursor: pointer;
+}
+
+.movie-data .quantity .quantity-value .value{
+    font-family: "Circular Black";
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #828286;
+    margin: 18px 20px;
+}
+
+.movie-data .purchase-buttons {
+    position: absolute;
+    top: 630px;
+    left: 843px;
 }
 

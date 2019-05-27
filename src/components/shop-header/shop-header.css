@@ -1,43 +1,85 @@
+@import url("../../styles-and-fonts/fonts.css");
+
 header {
-    margin: 30px 0px 70px 70px;
-    padding-bottom: 30px;
-    width: 700px;
-    position: relative;
-    border-bottom: rgb(0, 194, 233) solid;
     position: sticky;
     top: 0;
-    background-color: white;
     z-index: 1;
-    margin-bottom: 0px;
+    display: flex;
+    width: 1920px;
+    height: 80px;
+    box-shadow: 0 6px 4px -4px rgba(193, 193, 193, 0.5);;
+    background-color: #ffffff;
+}
+
+.header-title {
+    position: absolute;
+    top: 15px;
+    left: 370px;
+    position: relative;
+    width: 210px;
 }
 
 .logo {
-    margin-top: 0;
-}
-.title {
-    display: inline-block;
-    font-size: 32pt;
-    font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
     position: absolute;
-    top: -22px;
-    color: rgb(0, 194, 233);
 }
 
-
-.shopping-cart .counter {
-    position: absolute;
-    right: 40px;
-    top: 8px;
+.name {
+    width: 160px;
+    height: 50px;
+    font-family: "Circular Black";
+    font-size: 25px;
     font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 0.3px;
+    color: #111111;
+    position: absolute;
+    text-align: center;
+    left: 50px;
+    padding-left: 23px;
+    top: -5px;    
+}
+
+.shopping-cart {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 30px;
+    right: 372px;
 }
 
 .shopping-cart-icon {
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    top: 25%;
-    right: 10px;
+    width: 28px;
+    height: 24px;
+    object-fit: contain;  
 }
 
+.shopping-cart .counter {
+    width: 19px;
+    height: 19px;
+    border: solid 2px #ffffff;
+    background-color: #0894a1;
+    border-radius: 50%;
+    text-decoration: none;
+    position: absolute;
+    bottom: 25px;
+    left: 16px;
+    text-align: center;
+}
+
+.shopping-cart .counter .total {
+    width: 5px;
+    height: 14px;
+    font-family: "Circular Black";
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    color: #ffffff;  
+}

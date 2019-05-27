@@ -5,7 +5,4 @@ const HomePage = ({movieListId}) => {
     return <MovieList movieListId={movieListId} />
 }
 
-
-export {
-    HomePage
-}
+export default HomePage;

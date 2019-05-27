@@ -4,7 +4,7 @@ import './spinner.css';
 
 const Spinner = () => {
     return (
-        <div className="lds-css ng-scope" style={{margin: "150px"}}>
+        <div className="lds-css ng-scope" style={{marginLeft: "960px", marginTop: "300px"}}>
             <div className="lds-rolling">
                 <div></div>
                 <div></div>

@@ -28,11 +28,10 @@ export default class MoviestoreService {
         const imagePath = `${part1}${part2}${part3}`;
         return imagePath;
     }
-
     
     getItemList = async (id) => {
         const list = await this.getResource(`https://api.themoviedb.org/4/list/${id}?page=1&api_key=dab311d55ca033353e291532b0572824`);
-        return list.results.map(this._tranformItem);
+        return list.results.map(this._tranformItemList);
     }
 
     getItem = async (id) => {
@@ -40,13 +39,28 @@ export default class MoviestoreService {
         return this._tranformItem(item);
     }
 
+    _tranformItemList = (movie) => {
+        return  {
+            id: movie.id,
+            overview: movie.overview,
+            title: movie.original_title,
+            release: movie.release_date,
+            path: movie.poster_path,
+            popularity: movie.popularity            
+        }  
+    }
     _tranformItem = (movie) => {
         return  {
             id: movie.id,
             overview: movie.overview,
             title: movie.original_title,
             release: movie.release_date,
-            path: movie.poster_path
+            path: movie.poster_path,
+            genres: movie.genres      
         }  
-    } 
+    }
+
+
 }
+
+

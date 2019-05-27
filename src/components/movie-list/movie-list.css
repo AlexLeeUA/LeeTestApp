@@ -1,9 +1,10 @@
 .movielist {
     list-style-type: none;
     z-index: 0;
-    margin-top: 0px;
+    position: relative;
+    top: 104px;
+    left: 330px;
+    width: 1179px;
 }
 
-.movielist li {
-    
-}
+
