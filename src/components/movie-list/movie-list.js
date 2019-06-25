@@ -22,24 +22,6 @@ class MovieList extends Component {
         if (this.props.movieListId !== prevProps.movieListId) {
             this.updateList()
         }
-        if (this.props.searchReq.length !== prevProps.searchReq.length) {
-            this.search()
-        }
-}
-
-
-    search() {
-        const { movies, searchReq, moviesLoaded } = this.props
-        
-        if (searchReq.length === 0) {
-            this.updateList()
-        } 
-      
-        else {
-            return moviesLoaded(movies.filter((movie) => {
-                return movie.title.toLowerCase().indexOf(searchReq.toLowerCase()) > -1;
-            }))
-        }            
     }
 
     updateList() {
@@ -56,8 +38,7 @@ class MovieList extends Component {
             .then((path) => {
                 this.props.imagePathLoaded(path);
             })
-        }       
-        
+        }           
     }
 
     render() {
@@ -85,12 +66,15 @@ class MovieList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.movies,
+        movies: state.movies.filter((movie) => {
+            return movie.title.toLowerCase()
+                    .includes(state.searchReq.toLowerCase())
+        }),
         imagePath: state.imagePath,
         movieListId: state.movieListId,
         searchReq: state.searchReq,
         movieId: state.movieId,
-        loading: state.loading
+        loading: state.loading,
     }
 }
 

@@ -12,16 +12,14 @@ class SearchPanel extends Component {
         this.props.moviesFound(searchReq);       
     }
 
-  
-
     render() {
     
         const { searchReq, movies } = this.props;
         
         return (
             <div className="search-panel">
-                <div className="result"> {movies.length} Items found</div>
-                <input className="search" type="text" placeholder='Search &#128269;' value={searchReq} onChange={this.onSearchChange}></input>
+                <div className="result"> {movies.filter((movie) => {return movie.title.toLowerCase().includes(searchReq.toLowerCase())}).length} Items found</div>
+                <input className="search" type="text" placeholder='Search &#128269;' onChange={this.onSearchChange}></input>
             </div>
         )
     }

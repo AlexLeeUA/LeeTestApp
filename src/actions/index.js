@@ -39,8 +39,9 @@ const moviesFound = (text) => {
     return {
         type: 'MOVIES_FOUND',
         payload: text
+    }
 }
-}
+
 
 const movieIdGot = (id) => {
     return {
@@ -130,5 +131,5 @@ export {
     cartReloaded,
     shippingAddressAdded,
     itemAddedToCheckout,
-    itemsAddedToCheckout
+    itemsAddedToCheckout,
 };

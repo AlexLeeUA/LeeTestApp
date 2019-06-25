@@ -14,12 +14,13 @@ const ShopHeader = ({cartItems, movieListId, defaultListLoaded}) => {
     console.log(movieListId)
     return (
         <header>
-            <Link to={`/movielist/1`}>
+            <Link to={`/home`}>
                 <div className="header-title" onClick={()=>defaultListLoaded(movieListId)}>
                     <img src={logo} className="logo" alt="logo" />
                     <h1 className="name">Movies Store</h1>
                 </div>
             </Link>
+
             
             <Link to="/cart">
                 <div className="shopping-cart">                
@@ -28,8 +29,6 @@ const ShopHeader = ({cartItems, movieListId, defaultListLoaded}) => {
                 </div>
             </Link>
         </header>
-        
-
     )
 }
 

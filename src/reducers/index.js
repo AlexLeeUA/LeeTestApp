@@ -29,7 +29,7 @@ const initialState = {
         zip: '',
         phone: ''
     },
-    checkoutItems: []
+    checkoutItems: [],
 }
 
 const updateCartItems = (cartItems, item, idx) => {
@@ -100,12 +100,14 @@ const reducer = (state = initialState, action) => {
         case 'INC':
             return {
                 ...state,
+                searchReq: '',
                 movieListId: state.movieListId + 1
             };
         
         case 'DEC':
             return {
                 ...state,
+                searchReq: '',
                 movieListId: state.movieListId - 1
                        
             };

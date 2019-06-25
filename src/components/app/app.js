@@ -14,7 +14,7 @@ const App = (movieListId) => {
         
         <main>
             <ShopHeader movieListId={movieListId}/>
-            <Route path="/movielist/1" component={HomePage} exact />
+            <Route path="/home" component={HomePage} exact />
             <Route path="/movielist/:id/" render={({match}) => {
                                                 const {id} = match.params;
                                                 return <MovieList movieListId={id} />}} />

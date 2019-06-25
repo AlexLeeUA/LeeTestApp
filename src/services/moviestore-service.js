@@ -49,6 +49,7 @@ export default class MoviestoreService {
             popularity: movie.popularity            
         }  
     }
+
     _tranformItem = (movie) => {
         return  {
             id: movie.id,
@@ -59,8 +60,4 @@ export default class MoviestoreService {
             genres: movie.genres      
         }  
     }
-
-
 }
-
-
