@@ -8,14 +8,14 @@ import {connect} from 'react-redux';
 import './movie-page.css';
 import './../movie-list-item/movie-list-item.css'
 
-const GetGenres = ({genres}) => {
-    const names = genres.map((genre)=>genre.name);
-    return (
-        <div>
-            {names.join(' | ')}
-        </div>
-    )
-}
+//const GetGenres = ({genres}) => {
+//    const names = genres.map((genre)=>genre.name);
+//    return (
+//        <div>
+//            {names.join(' | ')}
+//        </div>
+//    )
+//}
 
 class UpdateMovieInCart extends Component {
         
@@ -73,7 +73,8 @@ class MoviePage extends Component {
 
         const {movie, imagePath, loading, defaultPrice, itemsAddedToCheckoutFromPP, itemsAddedToCart} = this.props;
         const fullPath=`${imagePath}${movie.path}`;
-        const genres = movie.genres;        
+        const genres = movie.genres; 
+        console.log(genres)       
 
         if (loading) {
             return <Spinner />
@@ -88,7 +89,7 @@ class MoviePage extends Component {
                             {movie.title}
                         </div>
                         <div className="details">
-                            <div className="movie-genre">Movie genre: <GetGenres genres={genres} /></div>
+                            <div className="movie-genre">Movie genre:  /></div>
                             <div className="movie-release">Release: <div>{movie.release}</div></div>
                         </div>
                         <div className="overview">
