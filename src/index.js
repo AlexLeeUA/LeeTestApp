@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './components/app';
 import ErrorBoundry from './components/error-boundry';
@@ -11,6 +11,7 @@ import { MoviestoreServiceProvider } from './components/moviestore-service-conte
 import store from './store';
 
 const moviestoreService = new MoviestoreService();
+
 
 ReactDOM.render(
     <Provider store={store}>

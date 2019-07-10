@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {cartReloaded, itemAddedToCart, itemsAddedToCheckout, itemDeletedFromCart, itemRemovedFromCart} from '../../actions';
 
 import './shopping-cart-table.css';
+import emptyShoppingImage from '../../styles-and-fonts/images/empty-cart.png';
 
 
 const dashBoard = ({cartItems}) => {
@@ -14,7 +15,7 @@ const dashBoard = ({cartItems}) => {
             <tbody>
                 <tr>
                     <td className="sub-total">Sub-total:</td>
-                    <td style={{textAlign: 'right'}} className="sub-total-price">${totalPrice}</td>
+                    <td style={{textAlign: 'right'}} className="sub-total-price">${totalPrice.toFixed(2)}</td>
                 </tr>
                 <tr>
                     <td className="shipping">Shipping:</td>
@@ -22,13 +23,14 @@ const dashBoard = ({cartItems}) => {
                 </tr>
                 <tr>
                     <td className="grand-total">Grand Total:</td>
-                    <td style={{textAlign: 'right'}} className="grand-total-value">${totalPrice}</td>
+                    <td style={{textAlign: 'right'}} className="grand-total-value">${totalPrice.toFixed(2)}</td>
                 </tr>
             </tbody>
         )
 }
 
 const quantityButtons = ({movie, itemRemovedFromCart, itemAddedToCart}) => {
+    
     return (
         <ul className="quantity-value">
             <li><button onClick={()=>itemRemovedFromCart(movie.id)}>-</button></li>
@@ -41,71 +43,88 @@ const quantityButtons = ({movie, itemRemovedFromCart, itemAddedToCart}) => {
 class ShoppingCartTable extends Component {
 
     renderRow = (movie) => {
-
+        
         const {imagePath, cartItems, itemAddedToCart, itemRemovedFromCart, itemDeletedFromCart} = this.props;
         const fullPath=`${imagePath}${movie.path}`;
         const index = cartItems.findIndex(({id}) => id === movie.id);
-       
+        
         return (
-            <div key={movie.id}>
-                <ul className="general-info">
-                    <li><button className="remove-item" onClick={()=>itemDeletedFromCart(index)} /></li>
-                    <li><img className="movie-image" src={fullPath} alt="movie" /></li>
-                    <li>
+            <div key={movie.id} className="general-info">
+                <div className="manage-info">
+                    <button className="remove-item" onClick={()=>itemDeletedFromCart(index)} />
+                    <img className="movie-image" src={fullPath} alt="movie" />
+                    <div className="data">
                         <div className="movie-title">{movie.title.toUpperCase()}</div>
                         <div className="quantity">
-                            <span className="quantity-name">QUANTITY</span>
+                            <div className="quantity-name">QUANTITY</div>
                             <div>
-                               {quantityButtons({movie, itemRemovedFromCart, itemAddedToCart})}
+                                {quantityButtons({movie, itemRemovedFromCart, itemAddedToCart})}
                             </div>
-                        </div>
-                    </li>
-                    <li className="price-value">${movie.price}</li>
-                </ul>
+                        </div>   
+                    </div>
+                </div>
+                <div className="price-value">
+                    ${movie.price.toFixed(2)}
+                </div>
             </div>
         )
     }
 
     render() {
         const {cartItems, movie, itemsAddedToCheckout} = this.props;
-        const reducer = (accumulator, currentValue) => accumulator + currentValue;      
-        const totalItems = cartItems.map((item) => item.quantity).reduce(reducer); 
-        console.log(cartItems)
 
-        return (
-            <div className="cart">
-                <div className="title">My Cart</div>
-                <div key={movie.id}>                                    
-                    {cartItems.map(this.renderRow)}
+        if(cartItems.length===0) {
+            return (
+                <div className="empty-cart">
+                    <div className="empty-cart-phrase">Ooops.. Your cart is empty</div>
+                    <img className="empty-cart-image" src={emptyShoppingImage} alt="empty-cart" />
                 </div>
-
-                <div className="purchase-items">
-                    <table className="checkout-table">
-                        <thead>
-                            <tr>
-                                <td className="order">Your Order</td>
-                                <td><span className="items">{totalItems} Items</span></td>
-                            </tr>
-                        </thead>
-                        {dashBoard({cartItems})}
-                    </table>
-                    <Link to="/checkout">
-                        <button className="checkout-button" onClick={()=>itemsAddedToCheckout(cartItems)}>Go to checkout</button>
-                    </Link>          
+            )
+        } else {
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;      
+            const totalItems = cartItems.map((item) => item.quantity).reduce(reducer);
+            return (
+                <div className="cart-container">
+                    <div className="cart-content">
+                        <div className="cart">
+                            <div className="title">My Cart</div>
+                            <div key={movie.id} className="item-list">                                    
+                                {cartItems.map(this.renderRow)}
+                            </div>
+                        </div>
+        
+                        <div className="purchase-items">
+                            <div className="data-table">
+                                <table className="checkout-table">
+                                    <thead>
+                                        <tr>
+                                            <td className="order">Your Order</td>
+                                            <td><span className="items">{totalItems} Items</span></td>
+                                        </tr>
+                                    </thead>
+                                    {dashBoard({cartItems})}
+                                </table>
+                            </div>
+                            <Link to="/checkout">
+                                <button className="checkout-button" onClick={()=>itemsAddedToCheckout(cartItems)}>Go to checkout</button>
+                            </Link>          
+                        </div>
+                    </div>    
                 </div>
-            </div>
-        )
+            )}
+        
+        
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        imagePath: state.imagePath,
-        movieId: state.movieId,
-        movie: state.movie,
-        cartItems: state.cartItems,
-        checkoutItems: state.checkoutItems,
-        defaultPrice: state.defaultPrice
+        imagePath: state.main.imagePath,
+        movieId: state.main.movieId,
+        movie: state.main.movie,
+        cartItems: state.main.cartItems,
+        checkoutItems: state.main.checkoutItems,
+        defaultPrice: state.main.defaultPrice
     }
 }
 

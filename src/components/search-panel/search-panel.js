@@ -27,8 +27,8 @@ class SearchPanel extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.movies,
-        searchReq: state.searchReq
+        movies: state.main.movies,
+        searchReq: state.main.searchReq
     }     
 }
 

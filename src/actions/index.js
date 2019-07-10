@@ -70,6 +70,13 @@ const itemAddedToCart = (id) => {
     }
 }
 
+const itemsAddedToCart = (quantity) => {
+    return {
+        type: 'ITEMS_ADDED_TO_CART',
+        payload: quantity
+    }
+}
+
 const itemRemovedFromCart = (id) => {
     return {
         type: 'ITEM_REMOVED_FROM_CART',
@@ -112,6 +119,12 @@ const itemsAddedToCheckout = (items) => {
     }
 }
 
+const itemsAddedToCheckoutFromPP = (quantity) => {
+    return {
+        type: 'ITEM_ADDED_TO_CHECKOUT_FROM_PP',
+        payload: quantity
+    }
+}
 
 
 
@@ -132,4 +145,6 @@ export {
     shippingAddressAdded,
     itemAddedToCheckout,
     itemsAddedToCheckout,
+    itemsAddedToCheckoutFromPP,
+    itemsAddedToCart
 };

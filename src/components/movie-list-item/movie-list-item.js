@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 
 import './movie-list-item.css';
 
-
 const PurchaseButtons = ({onAddedToCheckout, onAddedToCart, movie}) => {
     return (
         <div className="purchasing">
@@ -25,28 +24,32 @@ class MovieListItem extends Component {
 
         return (
             <div className="movie-list-item">
-                <img className="poster" src={fullPath} alt='movie-poster'></img>
-                <div>
-                    <Link to={`/movie/${movie.id}`}>
-                        <h2 id={movie.id} className="movie-title">{movie.title.toUpperCase()}</h2>
-                    </Link>
-                    <div className="content">
-                        <span className="movie-popularity">Popularity {movie.popularity}</span>
-                        <span className="movie-release">Release {movie.release}</span>
+                <div className="main-data">
+                    <img className="poster" src={fullPath} alt='movie-poster' />
+                    <div className="movie-list-content">
+                        <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none'}}>
+                            <h2 id={movie.id} className="movie-title">{movie.title.toUpperCase()}</h2>
+                        </Link>
+                        <div className="content">
+                            <div className="movie-popularity">Popularity {movie.popularity}</div>
+                            <div className="movie-release">Release {movie.release}</div>
+                        </div>
+                        <div className="movie-price">
+                            <div className="price-name">PRICE</div>
+                            <div className="price-value">${defaultPrice}</div>
+                        </div>
                     </div>
-                    <div className="movie-price">
-                        <span className="price-name">PRICE</span>
-                        <span className="price-value">${defaultPrice}</span>
-                    </div>
-                    <PurchaseButtons onAddedToCheckout={onAddedToCheckout} onAddedToCart={onAddedToCart} movie={movie} />       
-                </div>    
+                </div> 
+                <div className="movie-list-buttons">
+                    <PurchaseButtons onAddedToCheckout={onAddedToCheckout} onAddedToCart={onAddedToCart} movie={movie} /> 
+                </div>
             </div>
         )}
 }
 
 const mapStateToProps = (state) => {
     return {
-        defaultPrice: state.defaultPrice
+        defaultPrice: state.main.defaultPrice
     }
 }
 const mapDispatchToProps = (dispatch) => {

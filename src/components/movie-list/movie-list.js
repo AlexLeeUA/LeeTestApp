@@ -49,16 +49,18 @@ class MovieList extends Component {
         }
       
         return (
-            <div>
-                <SearchPanel />
-                <ul className="movielist" onClick={(e) => {return movieIdGot(e.target.id)}}>
-                    {
-                        movies.map((movie) => {
-                            return (<li key={movie.id}><MovieListItem movie={movie} imagePath={imagePath} /></li>)
-                        })
-                    }
-                </ul>
-                <ShopFooter />
+            <div className="content-container" >
+                <div className="movielist-container">
+                    <SearchPanel />
+                    <ul className="movielist" onClick={(e) => {return movieIdGot(e.target.id)}}>
+                        {
+                            movies.map((movie) => {
+                                return (<li key={movie.id}><MovieListItem movie={movie} imagePath={imagePath} /></li>)
+                            })
+                        }
+                    </ul>
+                    <ShopFooter />
+                </div>
             </div>
         )
     }   
@@ -66,15 +68,15 @@ class MovieList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.movies.filter((movie) => {
+        movies: state.main.movies.filter((movie) => {
             return movie.title.toLowerCase()
-                    .includes(state.searchReq.toLowerCase())
+                    .includes(state.main.searchReq.toLowerCase())
         }),
-        imagePath: state.imagePath,
-        movieListId: state.movieListId,
-        searchReq: state.searchReq,
-        movieId: state.movieId,
-        loading: state.loading,
+        imagePath: state.main.imagePath,
+        movieListId: state.main.movieListId,
+        searchReq: state.main.searchReq,
+        movieId: state.main.movieId,
+        loading: state.main.loading,
     }
 }
 

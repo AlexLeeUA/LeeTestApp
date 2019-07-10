@@ -50,7 +50,7 @@ class ShopFooter extends Component  {
 
 const mapStateToProps = (state) => {
     return {
-        movieListId: state.movieListId,
+        movieListId: state.main.movieListId,
     }
 }
 
